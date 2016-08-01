@@ -6,6 +6,8 @@ Imbox - Python IMAP for Humans
 
 Python library for reading IMAP mailboxes and converting email content to machine readable data
 
+
+
 Installation
 ============
 
@@ -18,10 +20,13 @@ Usage
 ```python
 from imbox import Imbox
 
+# SSL Context docs https://docs.python.org/2/library/ssl.html#ssl.create_default_context
+
 imbox = Imbox('imap.gmail.com',
-			  username='username', 
-			  password='password',
-			  ssl=True)
+		username='username', 
+		password='password',
+		ssl=True,
+		ssl_context=None)
 
 # Gets all messages 
 all_messages = imbox.messages()
@@ -102,12 +107,5 @@ for uid, message in all_messages:
 	}
 ```
 
-Roadmap 
-========
-* Lazy email fetching
-* Improved attachement handling
-* Search mailboxes
-* Manage labels
-* Delete emails 
-* Compose emails
 
+# [Changelog](https://github.com/martinrusev/imbox/blob/master/CHANGELOG.md)
